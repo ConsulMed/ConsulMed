@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using ConsulMed.Data.Dto;
+using ConsulMed.Data.Repositorio;
+using Microsoft.AspNetCore.Mvc;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -8,36 +10,118 @@ namespace ConsulMed.Controllers
     [ApiController]
     public class EspecialidadeController : ControllerBase
     {
-        // GET: api/<EspecialidadeController>
+        private readonly ConsulMed.Data.Interface.IEspecialidadeRepositorio _especialidadeRepositorio;
+
+        public EspecialidadeController(
+            ConsulMed.Data.Interface.IEspecialidadeRepositorio especialidadeRepositorio)
+        {
+            _especialidadeRepositorio = especialidadeRepositorio;
+        }
+
         [HttpGet]
-        public IEnumerable<string> Get()
+        [Route("/[controller]/ListarTodos")]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(List<ConsulMed.Data.Dto.EspecialidadeDto>))]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public IActionResult ListarTodas()
         {
-            return new string[] { "value1", "value2" };
+            try
+            {
+                List<EspecialidadeDto> resultado = _especialidadeRepositorio.ConsultarTodos();
+
+                if (resultado == null)
+                {
+                    return NoContent();
+                }
+
+                if (resultado.Count == 0)
+                {
+                    throw new Exception("Sem elementos");
+                }
+
+                return Ok(resultado);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
-        // GET api/<EspecialidadeController>/5
-        [HttpGet("{id}")]
-        public string Get(int id)
+        [HttpGet]
+        [Route("/[controller]/PorId/{id}")]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(ConsulMed.Data.Dto.EspecialidadeDto))]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public IActionResult PorId(int id)
         {
-            return "value";
+            if (id < 1)
+                return NoContent();
+
+            try
+            {
+                EspecialidadeDto resultado = _especialidadeRepositorio.ConsultarPorId(id);
+
+                if (resultado == null)
+                    return NoContent();
+
+                return Ok(resultado);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
-        // POST api/<EspecialidadeController>
         [HttpPost]
-        public void Post([FromBody] string value)
+        [Route("/[controller]/Cadastrar")]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(int))]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public IActionResult Cadastrar(EspecialidadeDto cadastrarDto)
         {
+            try
+            {
+                int resultado = _especialidadeRepositorio.CadastrarEspecialidade(cadastrarDto);
+
+                if (cadastrarDto == null || String.IsNullOrEmpty(cadastrarDto.Nome))
+                    return NoContent();
+
+                return Ok(resultado);
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e.Message);
+            }
         }
 
-        // PUT api/<EspecialidadeController>/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        [HttpPut]
+        [Route("/[controller]/Atualizar")]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(int))]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public IActionResult Atualizar(EspecialidadeDto cadastrarDto)
         {
+            try
+            {
+                return Ok(_especialidadeRepositorio.AtualizarEspecialidade(cadastrarDto));
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e.Message);
+            }
+
         }
 
-        // DELETE api/<EspecialidadeController>/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
+        [HttpDelete]
+        [Route("/[controller]/Excluir")]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(int))]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public IActionResult Excluir(int IdEspecialidade)
         {
+            try
+            {
+                return Ok(_especialidadeRepositorio.RemoverEspecialidade(IdEspecialidade));
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e.Message);
+            }
         }
     }
 }
