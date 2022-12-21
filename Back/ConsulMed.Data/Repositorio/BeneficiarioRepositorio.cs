@@ -35,20 +35,17 @@ namespace ConsulMed.Data.Repositorio
                 return 0;
             }
 
-            Entidade.Beneficiario beneficiarioEntidade = new Entidade.Beneficiario()
-            {
-                Nome = cadastrarDto.Nome,
-                Cpf = cadastrarDto.Cpf,
-                Telefone = cadastrarDto.Telefone,
-                Endereco = cadastrarDto.Endereco,
-                NumeroCarteirinha = cadastrarDto.NumeroCarteirinha,
-                Ativo = cadastrarDto.Ativo,
-                Email = cadastrarDto.Email,
-                Senha = cadastrarDto.Senha
-            };
+            beneficiarioEntidadeBanco.Nome = cadastrarDto.Nome;
+            beneficiarioEntidadeBanco.Cpf = cadastrarDto.Cpf;
+            beneficiarioEntidadeBanco.Telefone = cadastrarDto.Telefone;
+            beneficiarioEntidadeBanco.Endereco = cadastrarDto.Endereco;
+            beneficiarioEntidadeBanco.NumeroCarteirinha = cadastrarDto.NumeroCarteirinha;
+            beneficiarioEntidadeBanco.Ativo = cadastrarDto.Ativo;
+            beneficiarioEntidadeBanco.Email = cadastrarDto.Email;
+            beneficiarioEntidadeBanco.Senha = cadastrarDto.Senha;
 
             _contexto.ChangeTracker.Clear();
-            _contexto.Beneficiarios.Update(beneficiarioEntidade);
+            _contexto.Beneficiarios.Update(beneficiarioEntidadeBanco);
             return _contexto.SaveChanges();
         }
 
@@ -96,7 +93,14 @@ namespace ConsulMed.Data.Repositorio
             return _contexto.Beneficiarios.Select(s => new Dto.BeneficiarioDto()
             {
                 IdBeneficiario = s.IdBeneficiario,
-                Nome = s.Nome
+                Nome = s.Nome,
+                Cpf = s.Cpf,
+                Telefone = s.Telefone,
+                Endereco = s.Endereco,
+                NumeroCarteirinha = s.NumeroCarteirinha,
+                Ativo = s.Ativo,
+                Email = s.Email,
+                Senha = s.Senha
             }).ToList();
         }
 
