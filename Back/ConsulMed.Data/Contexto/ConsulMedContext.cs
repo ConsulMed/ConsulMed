@@ -33,7 +33,7 @@ public partial class ConsulMedContext : DbContext
 
     public virtual DbSet<Hospital> Hospitals { get; set; }
 
-    public virtual DbSet<Profissional> Profissionals { get; set; }
+    public virtual DbSet<Profissional> Profissional { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         => optionsBuilder.UseSqlServer(_configuration.GetConnectionString("Sql"));
@@ -197,7 +197,7 @@ public partial class ConsulMedContext : DbContext
 
             entity.ToTable("Profissional");
 
-            entity.Property(e => e.Endereço).IsUnicode(false);
+            entity.Property(e => e.Endereco).IsUnicode(false);
             entity.Property(e => e.Nome).IsUnicode(false);
             entity.Property(e => e.Telefone)
                 .HasMaxLength(15)
