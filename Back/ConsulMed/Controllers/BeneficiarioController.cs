@@ -100,10 +100,14 @@ namespace ConsulMed.Controllers
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public IActionResult Atualizar(BeneficiarioDto cadastrarDto)
         {
-            if (cadastrarDto.IdBeneficiario == null || cadastrarDto.IdBeneficiario < 1)
-                return NoContent();
-
-            return BadRequest("Não localizado");
+            try
+            {
+                return Ok(_beneficiarioRepositorio.Atualizar(cadastrarDto));
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e.Message);
+            }
 
         }
 
@@ -115,14 +119,11 @@ namespace ConsulMed.Controllers
         {
             try
             {
-            if (IdBeneficiario < 1)
-                return NoContent();
-
-            return Ok();
-
-            }catch (Exception e)
+                return Ok(_beneficiarioRepositorio.Excluir(IdBeneficiario));
+            }
+            catch (Exception e)
             {
-            return BadRequest(e.Message);
+                return BadRequest(e.Message);
             }
         }
     }

@@ -27,28 +27,22 @@ namespace ConsulMed.Data.Repositorio
                  ?.FirstOrDefault()
                  ?? new Entidade.Beneficiario();
 
-            // TRATAMENTO DE ERRO
-            // CASO NÃO ACHE O ID PARA ATUALIZAR, RETORNA VALOR 0. 
-            // OU SEJA, NÃO ATUALIZOU NENHUM CADASTRO
             if (beneficiarioEntidadeBanco == null || DBNull.Value.Equals(beneficiarioEntidadeBanco.IdBeneficiario) || beneficiarioEntidadeBanco.IdBeneficiario == 0)
             {
                 return 0;
             }
 
-            Entidade.Beneficiario beneficiarioEntidade = new Entidade.Beneficiario()
-            {
-                Nome = cadastrarDto.Nome,
-                Cpf = cadastrarDto.Cpf,
-                Telefone = cadastrarDto.Telefone,
-                Endereco = cadastrarDto.Endereco,
-                NumeroCarteirinha = cadastrarDto.NumeroCarteirinha,
-                Ativo = cadastrarDto.Ativo,
-                Email = cadastrarDto.Email,
-                Senha = cadastrarDto.Senha
-            };
+            beneficiarioEntidadeBanco.Nome = cadastrarDto.Nome;
+            beneficiarioEntidadeBanco.Cpf = cadastrarDto.Cpf;
+            beneficiarioEntidadeBanco.Telefone = cadastrarDto.Telefone;
+            beneficiarioEntidadeBanco.Endereco = cadastrarDto.Endereco;
+            beneficiarioEntidadeBanco.NumeroCarteirinha = cadastrarDto.NumeroCarteirinha;
+            beneficiarioEntidadeBanco.Ativo = cadastrarDto.Ativo;
+            beneficiarioEntidadeBanco.Email = cadastrarDto.Email;
+            beneficiarioEntidadeBanco.Senha = cadastrarDto.Senha;
 
             _contexto.ChangeTracker.Clear();
-            _contexto.Beneficiarios.Update(beneficiarioEntidade);
+            _contexto.Beneficiarios.Update(beneficiarioEntidadeBanco);
             return _contexto.SaveChanges();
         }
 
@@ -78,9 +72,6 @@ namespace ConsulMed.Data.Repositorio
                  where c.IdBeneficiario == idBeneficiario
                  select c).FirstOrDefault();
 
-            // TRATAMENTO DE ERRO
-            // CASO NÃO ACHE O ID PARA ATUALIZAR, RETORNA VALOR 0. 
-            // OU SEJA, NÃO ATUALIZOU NENHUM CADASTRO
             if (beneficiarioEntidadeBanco == null || DBNull.Value.Equals(beneficiarioEntidadeBanco.IdBeneficiario) || beneficiarioEntidadeBanco.IdBeneficiario == 0)
             {
                 return 0;
@@ -96,7 +87,14 @@ namespace ConsulMed.Data.Repositorio
             return _contexto.Beneficiarios.Select(s => new Dto.BeneficiarioDto()
             {
                 IdBeneficiario = s.IdBeneficiario,
-                Nome = s.Nome
+                Nome = s.Nome,
+                Cpf = s.Cpf,
+                Telefone = s.Telefone,
+                Endereco = s.Endereco,
+                NumeroCarteirinha = s.NumeroCarteirinha,
+                Ativo = s.Ativo,
+                Email = s.Email,
+                Senha = s.Senha
             }).ToList();
         }
 
@@ -107,7 +105,14 @@ namespace ConsulMed.Data.Repositorio
                     select new Dto.BeneficiarioDto()
                     {
                         IdBeneficiario = t.IdBeneficiario,
-                        Nome = t.Nome
+                        Nome = t.Nome,
+                        Cpf = t.Cpf,
+                        Telefone = t.Telefone,
+                        Endereco = t.Endereco,
+                        NumeroCarteirinha = t.NumeroCarteirinha,
+                        Ativo = t.Ativo,
+                        Email = t.Email,
+                        Senha = t.Senha
                     })
                     ?.FirstOrDefault()
                     ?? new BeneficiarioDto();
