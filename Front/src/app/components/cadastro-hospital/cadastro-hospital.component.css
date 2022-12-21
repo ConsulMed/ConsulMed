@@ -1,0 +1,13 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.title {
+  color:#26525E;
+  font-family: 'Arial';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 2.5rem;
+}
