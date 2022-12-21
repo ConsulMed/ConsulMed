@@ -10,7 +10,6 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./beneficiario.component.css']
 })
 export class BeneficiarioComponent implements OnInit {
-
   beneficiario!: IBeneficiarioDto;
   idBeneficiarioRecebido!: number;
   
