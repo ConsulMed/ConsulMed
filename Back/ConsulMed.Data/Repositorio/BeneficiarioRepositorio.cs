@@ -105,7 +105,14 @@ namespace ConsulMed.Data.Repositorio
                     select new Dto.BeneficiarioDto()
                     {
                         IdBeneficiario = t.IdBeneficiario,
-                        Nome = t.Nome
+                        Nome = t.Nome,
+                        Cpf = t.Cpf,
+                        Telefone = t.Telefone,
+                        Endereco = t.Endereco,
+                        NumeroCarteirinha = t.NumeroCarteirinha,
+                        Ativo = t.Ativo,
+                        Email = t.Email,
+                        Senha = t.Senha
                     })
                     ?.FirstOrDefault()
                     ?? new BeneficiarioDto();
