@@ -48,7 +48,7 @@ namespace ConsulMed.Data.Repositorio
             {
                 Nome = cadastroDto.Nome,
                 Cnpj = cadastroDto.Cnpj,
-                Endereço = cadastroDto.Endereço,
+                Endereco = cadastroDto.Endereco,
                 Telefone = cadastroDto.Telefone,
                 Cnes = cadastroDto.Cnes,
                 Ativo = cadastroDto.Ativo
@@ -75,7 +75,7 @@ namespace ConsulMed.Data.Repositorio
 
                 hospital.Nome = cadastroDto.Nome;
                 hospital.Cnpj = cadastroDto.Cnpj;
-                hospital.Endereço = cadastroDto.Endereço;
+                hospital.Endereco = cadastroDto.Endereco;
                 hospital.Telefone = cadastroDto.Telefone;
                 hospital.Cnes = cadastroDto.Cnes;
                 hospital.Ativo = cadastroDto.Ativo;

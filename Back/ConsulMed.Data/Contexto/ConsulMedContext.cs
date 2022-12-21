@@ -184,7 +184,7 @@ public partial class ConsulMedContext : DbContext
                 .HasMaxLength(25)
                 .IsUnicode(false)
                 .HasColumnName("CNPJ");
-            entity.Property(e => e.Endereço).IsUnicode(false);
+            entity.Property(e => e.Endereco).IsUnicode(false);
             entity.Property(e => e.Nome).IsUnicode(false);
             entity.Property(e => e.Telefone)
                 .HasMaxLength(15)
