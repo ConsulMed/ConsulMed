@@ -27,9 +27,6 @@ namespace ConsulMed.Data.Repositorio
                  ?.FirstOrDefault()
                  ?? new Entidade.Beneficiario();
 
-            // TRATAMENTO DE ERRO
-            // CASO NÃO ACHE O ID PARA ATUALIZAR, RETORNA VALOR 0. 
-            // OU SEJA, NÃO ATUALIZOU NENHUM CADASTRO
             if (beneficiarioEntidadeBanco == null || DBNull.Value.Equals(beneficiarioEntidadeBanco.IdBeneficiario) || beneficiarioEntidadeBanco.IdBeneficiario == 0)
             {
                 return 0;
@@ -75,9 +72,6 @@ namespace ConsulMed.Data.Repositorio
                  where c.IdBeneficiario == idBeneficiario
                  select c).FirstOrDefault();
 
-            // TRATAMENTO DE ERRO
-            // CASO NÃO ACHE O ID PARA ATUALIZAR, RETORNA VALOR 0. 
-            // OU SEJA, NÃO ATUALIZOU NENHUM CADASTRO
             if (beneficiarioEntidadeBanco == null || DBNull.Value.Equals(beneficiarioEntidadeBanco.IdBeneficiario) || beneficiarioEntidadeBanco.IdBeneficiario == 0)
             {
                 return 0;
