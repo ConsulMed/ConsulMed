@@ -12,6 +12,7 @@ import { ProfissionalComponent } from './components/profissional/profissional.co
 import { ListarHospitaisComponent } from './components/listar-hospitais/listar-hospitais.component';
 import { ListarProfissionalComponent } from './components/listar-profissional/listar-profissional.component';
 import { EspecialidadesComponent } from './components/especialidades/especialidades.component';
+import { ListarBeneficiariosComponent } from './components/listar-beneficiarios/listar-beneficiarios.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { EspecialidadesComponent } from './components/especialidades/especialida
     ProfissionalComponent,
     ListarHospitaisComponent,
     ListarProfissionalComponent,
-    EspecialidadesComponent
+    EspecialidadesComponent,
+    ListarBeneficiariosComponent
   ],
   imports: [
     BrowserModule,

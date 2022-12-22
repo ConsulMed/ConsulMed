@@ -1,0 +1,22 @@
+<main class="main">
+  <h1 class="title">Beneficiários</h1>
+
+  <form *ngIf="telaParaApresentar=='listabeneficiario'">
+
+    <div class="form-group container-btn">
+      <button (click)="cadastrarBeneficiario()">Cadastrar novo beneficiario</button>
+    </div>
+
+    <div class="data">
+      <ul class="list-unstyled" *ngIf="beneficiario && beneficiario.length">
+        <li *ngFor="let beneficiario of beneficiarioLista" class="item-lista"> <span class="span-beneficiario-lista">Beneficiario:</span> {{beneficiario.nome}}
+          <span class="icons">
+            <i class="material-icons">edit</i>
+            <i class="material-icons">visibility</i>
+            <i class="material-icons">delete</i>
+          </span>
+        </li>
+      </ul>
+    </div>
+  </form>
+</main>

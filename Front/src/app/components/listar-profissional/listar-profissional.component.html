@@ -1,14 +1,19 @@
-<main>
-  <h1 class="title">Profissonais</h1>
+<main class="main">
+  <h1 class="title">Profissinais</h1>
 
   <form *ngIf="telaParaApresentar=='listaprofissional'">
 
-    <div class="form-group">
+    <div class="form-group container-btn">
       <button (click)="cadastrarProfissional()">Cadastrar Profissional</button>
     </div>
     <div class="data">
       <ul class="list-unstyled" *ngIf="profissional && profissional.length">
-        <li *ngFor="let hospital of profissionalLista"> Nome: {{hospital.nome}}
+        <li *ngFor="let hospital of profissionalLista" class="item-lista"> <span class="span-hospital-lista">Profissional:</span> {{hospital.nome}}
+          <span class="icons">
+            <i class="material-icons">edit</i>
+            <i class="material-icons">visibility</i>
+            <i class="material-icons">delete</i>
+          </span>
         </li>
       </ul>
     </div>

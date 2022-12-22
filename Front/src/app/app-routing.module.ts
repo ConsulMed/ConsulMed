@@ -7,6 +7,7 @@ import { HomeComponent } from './components/home/home.component';
 import { ListarHospitaisComponent } from './components/listar-hospitais/listar-hospitais.component';
 import { ListarProfissionalComponent } from './components/listar-profissional/listar-profissional.component';
 import { EspecialidadesComponent } from './components/especialidades/especialidades.component';
+import { ListarBeneficiariosComponent } from './components/listar-beneficiarios/listar-beneficiarios.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -16,6 +17,7 @@ const routes: Routes = [
   { path: 'cadastrarprofissional', component: ProfissionalComponent},
   { path: 'listarprofissional', component: ListarProfissionalComponent},
   { path: 'cadastrarespecialidades', component: EspecialidadesComponent},
+  { path: 'listarbeneficiario', component: ListarBeneficiariosComponent},
 
   { path: '**', redirectTo: ''}
 ];
