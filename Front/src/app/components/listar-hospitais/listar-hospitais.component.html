@@ -1,14 +1,19 @@
-<main>
+<main class="main">
   <h1 class="title">Hospitais</h1>
 
   <form *ngIf="telaParaApresentar=='listahospitais'">
 
-    <div class="form-group">
-      <button (click)="cadastrarHospital()">Cadastrar hospital</button>
+    <div class="form-group container-btn">
+      <button (click)="cadastrarHospital()">Cadastrar novo hospital</button>
     </div>
     <div class="data">
       <ul class="list-unstyled" *ngIf="hospitais && hospitais.length">
-        <li *ngFor="let hospital of hospitaisLista"> Nome: {{hospital.nome}}
+        <li *ngFor="let hospital of hospitaisLista" class="item-lista"> <span class="span-hospital-lista">Hospital:</span> {{hospital.nome}}
+          <span class="icons">
+            <i class="material-icons">edit</i>
+            <i class="material-icons">visibility</i>
+            <i class="material-icons">delete</i>
+          </span>
         </li>
       </ul>
     </div>

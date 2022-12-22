@@ -1,0 +1,59 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+.title {
+  color:#26525E;
+  font-family: 'Arial';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 2.5rem;
+}
+
+.container-btn {
+  display: flex;
+  justify-content: center;
+}
+
+.container-btn button{
+  padding: 12px;
+  margin-top: 1.5rem;
+  border: none;
+  border-radius: 8px;
+  color:#26525E;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.data {
+  margin-top: 1em;
+  overflow-y: auto;
+}
+
+.data li {
+  background-color: #F4F4F4;
+  padding: 20px;
+  margin: 1em auto;
+
+}
+
+.data li i {
+  float: right;
+  color: #888;
+  cursor: pointer;
+}
+
+.span-hospital-lista {
+  font-weight: 600;
+}
+
+.icons {
+  margin-left: 4rem;
+}
+
+.icons i {
+  margin-left: 1.5rem;
+}
