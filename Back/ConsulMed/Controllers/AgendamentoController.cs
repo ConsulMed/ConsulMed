@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using ConsulMed.Data.Dto;
+using ConsulMed.Data.Interface;
+using Microsoft.AspNetCore.Mvc;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -8,36 +10,119 @@ namespace ConsulMed.Controllers
     [ApiController]
     public class AgendamentoController : ControllerBase
     {
-        // GET: api/<AgendamentoController>
+        private readonly ConsulMed.Data.Interface.IAgendamentoRepositorio _agendamentoRepositorio;
+        private IAgendamentoRepositorio _agendamentooRepositorio;
+
+        public AgendamentoController(
+            ConsulMed.Data.Interface.IAgendamentoRepositorio agendamentoRepositorio)
+        {
+            _agendamentooRepositorio = agendamentoRepositorio;
+        }
+
         [HttpGet]
-        public IEnumerable<string> Get()
+        [Route("/ListarTodas")]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(List<ConsulMed.Data.Dto.AgendamentoDto>))]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public IActionResult ListarTodas()
         {
-            return new string[] { "value1", "value2" };
+            try
+            {
+                List<AgendamentoDto> resultado = _agendamentoRepositorio.ListarTodas();
+
+                if (resultado == null)
+                {
+                    return NoContent();
+                }
+
+                if (resultado.Count == 0)
+                {
+                    throw new Exception("Sem elementos");
+                }
+
+                return Ok(resultado);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
-        // GET api/<AgendamentoController>/5
-        [HttpGet("{id}")]
-        public string Get(int id)
+        [HttpGet]
+        [Route("/PorId/{id}")]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(ConsulMed.Data.Dto.AgendamentoDto))]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public IActionResult PorId(int id)
         {
-            return "value";
+            if (id < 1)
+                return NoContent();
+
+            try
+            {
+                AgendamentoDto resultado = _agendamentoRepositorio.PorId(id);
+
+                if (resultado == null)
+                    return NoContent();
+
+                return Ok(resultado);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
-        // POST api/<AgendamentoController>
         [HttpPost]
-        public void Post([FromBody] string value)
+        [Route("/Cadastrar")]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(int))]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public IActionResult Cadastrar(AgendamentoDto cadastrarDto)
         {
+            try
+            {
+                int resultado = _agendamentoRepositorio.Cadastrar(cadastrarDto);
+
+                if (cadastrarDto == null || String.IsNullOrEmpty(ToString))
+                    return NoContent();
+
+                return Ok(resultado);
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e.Message);
+            }
         }
 
-        // PUT api/<AgendamentoController>/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        [HttpPut]
+        [Route("/Atualizar")]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(int))]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public IActionResult Atualizar(AgendamentoDto cadastrarDto)
         {
+            if (cadastrarDto.IdAgendamento == null || cadastrarDto.IdAgendamento < 1)
+                return NoContent();
+
+            return BadRequest("Não localizado");
+
         }
 
-        // DELETE api/<AgendamentoController>/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
+        [HttpDelete]
+        [Route("/Excluir")]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(int))]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public IActionResult Excluir(int IAgendamento)
         {
+            try
+            {
+                if (IAgendamento < 1)
+                    return NoContent();
+
+                return Ok();
+
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e.Message);
+            }
         }
     }
 }
