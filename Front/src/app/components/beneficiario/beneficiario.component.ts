@@ -12,8 +12,8 @@ import { Component, OnInit } from '@angular/core';
 export class BeneficiarioComponent implements OnInit {
   beneficiario!: IBeneficiarioDto;
   idBeneficiarioRecebido!: number;
-  
-  constructor(private http: HttpClient, private route: ActivatedRoute, private router: Router) { 
+
+  constructor(private http: HttpClient, private route: ActivatedRoute, private router: Router) {
     this.route.paramMap.subscribe(params => {
       this.idBeneficiarioRecebido = Number(params.get('idBeneficiario'));
           });
