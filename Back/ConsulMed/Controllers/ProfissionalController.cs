@@ -29,7 +29,7 @@ namespace ConsulMed.Controllers
         [Route("/[controller]/ListarTodosProfissionais")]
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(List<ConsulMed.Data.Dto.ProfissionalDto>))]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public IActionResult ListarTodas()
+        public IActionResult ListarTodosProfissionais()
         {
             try
             {

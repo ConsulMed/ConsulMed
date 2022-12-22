@@ -1,1 +1,16 @@
-<p>listar-profissional works!</p>
+<main>
+  <h1 class="title">Profissonais</h1>
+
+  <form *ngIf="telaParaApresentar=='listaprofissional'">
+
+    <div class="form-group">
+      <button (click)="cadastrarProfissional()">Cadastrar Profissional</button>
+    </div>
+    <div class="data">
+      <ul class="list-unstyled" *ngIf="profissional && profissional.length">
+        <li *ngFor="let hospital of profissionalLista"> Nome: {{hospital.nome}}
+        </li>
+      </ul>
+    </div>
+  </form>
+</main>
