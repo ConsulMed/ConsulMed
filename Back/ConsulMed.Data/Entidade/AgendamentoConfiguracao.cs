@@ -22,4 +22,6 @@ public partial class AgendamentoConfiguracao
     public virtual Hospital IdHospitalNavigation { get; set; } = null!;
 
     public virtual Profissional IdProfissionalNavigation { get; set; } = null!;
+    public int IdAgendamentoConfiguracao { get; internal set; }
+   
 }
