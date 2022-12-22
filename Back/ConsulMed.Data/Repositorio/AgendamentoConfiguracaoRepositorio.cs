@@ -12,8 +12,6 @@ namespace ConsulMed.Data.Repositorio
     public class AgendamentoConfiguracaoRepositorio : IAgendamentoConfiguracaoRepositorio
     {
         private readonly Contexto.ConsulMedContext _contexto;
-        private AgendamentoConfiguracao agendamentoConfiguracaoEntidade;
-        private AgendamentoConfiguracao agendamentoConfiguracaoEntidadeBanco;
 
         public AgendamentoConfiguracaoRepositorio(Contexto.ConsulMedContext contexto)
         {
@@ -22,7 +20,7 @@ namespace ConsulMed.Data.Repositorio
 
         public int Atualizar(AgendamentoConfiguracaoDto cadastrarDto)
         {
-            Entidade.AgendamentConfiguracao agendamentoConfiguracaoEntidadeBanco =
+            Entidade.AgendamentoConfiguracao agendamentoConfiguracaoEntidadeBanco =
                 (from c in _contexto.AgendamentoConfiguracaos
                  where c.IdConfiguracao == cadastrarDto.IdConfiguracao
                  select c)
@@ -30,7 +28,7 @@ namespace ConsulMed.Data.Repositorio
                  ?? new Entidade.AgendamentoConfiguracao();
 
 
-            if (agendamentoConfiguracaoEntidadeBanco == null || DBNull.Value.Equals(agendamentoConfiguracaoEntidadeBanco.IdAgendamento) || agendamentoConfiguracaoEntidadeBanco.IdAgendamento == 0)
+            if (agendamentoConfiguracaoEntidadeBanco == null || DBNull.Value.Equals(agendamentoConfiguracaoEntidadeBanco.IdAgendamentoConfiguracao) || agendamentoConfiguracaoEntidadeBanco.IdAgendamentoConfiguracao == 0)
             {
                 return 0;
             }
@@ -38,11 +36,11 @@ namespace ConsulMed.Data.Repositorio
             agendamentoConfiguracaoEntidadeBanco.IdHospital = cadastrarDto.IdHospital;
             agendamentoConfiguracaoEntidadeBanco.IdEspecialidade = cadastrarDto.IdEspecialidade;
             agendamentoConfiguracaoEntidadeBanco.IdProfissional = cadastrarDto.IdProfissional;
-            agendamentoConfiguracaoEntidadeBanco.DataHoraAgendamento = cadastrarDto.DataHoraAgendamento;
-            agendamentoConfiguracaoEntidadeBanco.DataHoraFimAgendamento = cadastrarDto.DataHoraFimAgendamento;
+            agendamentoConfiguracaoEntidadeBanco.DataHoraInicioAtendimento = cadastrarDto.DataHoraInicioAtendimento;
+            agendamentoConfiguracaoEntidadeBanco.DataHoraFinalAtendimento = cadastrarDto.DataHoraFinalAtendimento;
 
             _contexto.ChangeTracker.Clear();
-            _contexto.AgendamentoConfiguracaos.Update(agendamentoConfiguracaoEntidade);
+            _contexto.AgendamentoConfiguracaos.Update(agendamentoConfiguracaoEntidadeBanco);
             return _contexto.SaveChanges();
         }
 
@@ -54,8 +52,8 @@ namespace ConsulMed.Data.Repositorio
                 IdHospital = cadastrarDto.IdHospital,
                 IdEspecialidade = cadastrarDto.IdEspecialidade,
                 IdProfissional = cadastrarDto.IdProfissional,
-                DataHoraAgendamento = cadastrarDto.DataHoraAgendamento,
-                DataHoraFinalAgendamento = cadastrarDto.DataHoraFinalAgendamento
+                DataHoraInicioAtendimento = cadastrarDto.DataHoraInicioAtendimento,
+                DataHoraFinalAtendimento = cadastrarDto.DataHoraFinalAtendimento
             };
 
             _contexto.ChangeTracker.Clear();
@@ -71,13 +69,13 @@ namespace ConsulMed.Data.Repositorio
                  select c).FirstOrDefault();
 
 
-            if (agendamentoConfiguracaoEntidadeBanco == null || DBNull.Value.Equals(agendamentoConfiguracaoEntidadeBanco.IdAgendamentoConfiguracao) || agendamentoConfiguracaoEntidadeBanco.IdAgendamentoConfiguracao == 0)
+            if (agendamentoConfiguracaoEntidadeBando == null || DBNull.Value.Equals(agendamentoConfiguracaoEntidadeBando.IdAgendamentoConfiguracao) || agendamentoConfiguracaoEntidadeBando.IdAgendamentoConfiguracao == 0)
             {
                 return 0;
             }
 
             _contexto.ChangeTracker.Clear();
-            _contexto.AgendamentoConfiguracaos.Remove(agendamentoConfiguracaoEntidadeBanco);
+            _contexto.AgendamentoConfiguracaos.Remove(agendamentoConfiguracaoEntidadeBando);
             return _contexto.SaveChanges();
         }
 
@@ -89,7 +87,7 @@ namespace ConsulMed.Data.Repositorio
                 IdHospital = s.IdHospital,
                 IdEspecialidade = s.IdEspecialidade,
                 IdProfissional = s.IdProfissional,
-                DataHoraAgendamento = s.DataHoraAgendamento,
+                DataHoraInicioAtendimento = s.DataHoraInicioAtendimento,
                 DataHoraFinalAtendimento = s.DataHoraFinalAtendimento,
             }).ToList();
         }
@@ -104,11 +102,11 @@ namespace ConsulMed.Data.Repositorio
                         IdHospital = t.IdHospital,
                         IdEspecialidade = t.IdEspecialidade,
                         IdProfissional = t.IdProfissional,
-                        DataHoraAgendamento = t.DataHoraAgendamento,
+                        DataHoraInicioAtendimento = t.DataHoraInicioAtendimento,
                         DataHoraFinalAtendimento = t.DataHoraFinalAtendimento,
                     })
                     ?.FirstOrDefault()
-                    ?? new BeneficiarioDto();
+                    ?? new AgendamentoConfiguracaoDto();
         }
     }
 }

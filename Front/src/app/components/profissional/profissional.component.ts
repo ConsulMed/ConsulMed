@@ -43,13 +43,13 @@ export class ProfissionalComponent implements OnInit {
 
       if (this.profissional.IdProfissional == 0) {
 
-        this.http.post('https://localhost:7074/CadastrarProfissional', this.profissional)
+        this.http.post('https://localhost:7074/Profissional/CadastrarProfissional', this.profissional)
           .subscribe((data) => {
             this.router.navigate(['cadastrarprofissional']);
           });
 
       } else {
-        this.http.patch('https://localhost:7074/AtualizarProfissional', this.profissional)
+        this.http.patch('https://localhost:7074/Profissional/AtualizarProfissional', this.profissional)
           .subscribe((data) => {
             this.router.navigate(['cadastrarprofissional']);
           });

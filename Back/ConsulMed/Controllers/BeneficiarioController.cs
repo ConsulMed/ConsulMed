@@ -22,7 +22,7 @@ namespace ConsulMed.Controllers
         }
 
         [HttpGet]
-        [Route("/ListarTodas")]
+        [Route("/[controller]/ListarTodas")]
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(List<ConsulMed.Data.Dto.BeneficiarioDto>))]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public IActionResult ListarTodas()
@@ -50,7 +50,7 @@ namespace ConsulMed.Controllers
         }
 
         [HttpGet]
-        [Route("/PorId/{id}")]
+        [Route("/[controller]/PorId/{id}")]
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(ConsulMed.Data.Dto.BeneficiarioDto))]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public IActionResult PorId(int id)
@@ -74,7 +74,7 @@ namespace ConsulMed.Controllers
         }
 
         [HttpPost]
-        [Route("/Cadastrar")]
+        [Route("/[controller]/Cadastrar")]
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(int))]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public IActionResult Cadastrar(BeneficiarioDto cadastrarDto)
@@ -95,7 +95,7 @@ namespace ConsulMed.Controllers
         }
         
         [HttpPut]
-        [Route("/Atualizar")]
+        [Route("/[controller]/Atualizar")]
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(int))]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public IActionResult Atualizar(BeneficiarioDto cadastrarDto)
@@ -112,7 +112,7 @@ namespace ConsulMed.Controllers
         }
 
         [HttpDelete]
-        [Route("/Excluir")]
+        [Route("/[controller]/Excluir")]
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(int))]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public IActionResult Excluir(int IdBeneficiario)
