@@ -10,6 +10,7 @@ import { HomeComponent } from './components/home/home.component';
 import { BeneficiarioComponent } from './components/beneficiario/beneficiario.component';
 import { ProfissionalComponent } from './components/profissional/profissional.component';
 import { ListarHospitaisComponent } from './components/listar-hospitais/listar-hospitais.component';
+import { ListarProfissionalComponent } from './components/listar-profissional/listar-profissional.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { ListarHospitaisComponent } from './components/listar-hospitais/listar-h
     HomeComponent,
     BeneficiarioComponent,
     ProfissionalComponent,
-    ListarHospitaisComponent
+    ListarHospitaisComponent,
+    ListarProfissionalComponent
   ],
   imports: [
     BrowserModule,
