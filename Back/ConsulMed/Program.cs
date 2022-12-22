@@ -16,13 +16,13 @@ namespace ConsulMed
             builder.Services.AddSwaggerGen();
             builder.Services.AddDbContext<ConsulMed.Data.Contexto.ConsulMedContext>();
 
-            //builder.Services.AddScoped<
-            //    ConsulMed.Data.Interface.IAgendamentoConfiguracaoRepositorio,
-            //    ConsulMed.Data.Repositorio.AgendamentoConfiguracaoRepositorio>();
+            builder.Services.AddScoped<
+                ConsulMed.Data.Interface.IAgendamentoConfiguracaoRepositorio,
+                ConsulMed.Data.Repositorio.AgendamentoConfiguracaoRepositorio>();
 
-            //builder.Services.AddScoped<
-            //    ConsulMed.Data.Interface.IAgendamentoRepositorio,
-            //    ConsulMed.Data.Repositorio.AgendamentoRepositorio>();
+            builder.Services.AddScoped<
+                ConsulMed.Data.Interface.IAgendamentoRepositorio,
+                ConsulMed.Data.Repositorio.AgendamentoRepositorio>();
 
             builder.Services.AddScoped<
                 ConsulMed.Data.Interface.IBeneficiarioRepositorio,
