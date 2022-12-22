@@ -24,7 +24,7 @@ namespace ConsulMed.Data.Repositorio
             return _contexto.Especialidades.Select(h => new Dto.EspecialidadeDto()
             {
                 Ativo = h.Ativo,
-                Descrição = h.Descricao,
+                Descricao = h.Descricao,
                 IdEspecialidade = h.IdEspecialidade,
                 Nome = h.Nome,
 
@@ -50,7 +50,7 @@ namespace ConsulMed.Data.Repositorio
             {
                 Nome = cadastroDto.Nome,
                 Ativo = cadastroDto.Ativo,
-                Descricao = cadastroDto.Descrição,
+                Descricao = cadastroDto.Descricao,
                 IdEspecialidade = cadastroDto.IdEspecialidade,
 
             };
@@ -76,7 +76,7 @@ namespace ConsulMed.Data.Repositorio
 
             especialidade.Nome = cadastroDto.Nome;
             especialidade.Ativo = cadastroDto.Ativo;
-            especialidade.Descricao = cadastroDto.Descrição;
+            especialidade.Descricao = cadastroDto.Descricao;
             especialidade.IdEspecialidade = cadastroDto.IdEspecialidade;
 
 
