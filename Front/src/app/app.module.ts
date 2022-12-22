@@ -8,13 +8,15 @@ import { AppComponent } from './app.component';
 import { CadastroHospitalComponent } from './components/cadastro-hospital/cadastro-hospital.component';
 import { HomeComponent } from './components/home/home.component';
 import { BeneficiarioComponent } from './components/beneficiario/beneficiario.component';
+import { ProfissionalComponent } from './components/profissional/profissional.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CadastroHospitalComponent,
     HomeComponent,
-    BeneficiarioComponent
+    BeneficiarioComponent,
+    ProfissionalComponent
   ],
   imports: [
     BrowserModule,

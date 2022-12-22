@@ -1,0 +1,42 @@
+<form>
+  <div class="container">
+    <div class="tituloProfissional">
+      <label class="title">Cadastrar Profissional</label>
+    </div>
+
+    <div class="mb-3 row">
+      <label for="nomeProfissional" class="col-sm-4 col-form-label descricao">Nome do Profissional:</label>
+      <div class="col-sm-6">
+        <input type="text" class="form-control" id="nomeProfissional" [(ngModel)]="profissional.Nome" name="nome">
+      </div>
+    </div>
+
+    <div class="mb-3 row">
+      <label for="telefone" class="col-sm-4 col-form-label descricao">Telefone:</label>
+      <div class="col-sm-6">
+        <input type="text" class="form-control" id="telefone" [(ngModel)]="profissional.Telefone" name="telefone">
+      </div>
+    </div>
+
+    <div class="mb-3 row">
+      <label for="endereco" class="col-sm-4 col-form-label descricao">Endereço:</label>
+      <div class="col-sm-6">
+        <input type="text" class="form-control" id="endereco" [(ngModel)]="profissional.Endereco" name="endereco">
+      </div>
+    </div>
+
+    <div class="mb-3 row">
+      <label for="ativo" class="col-sm-4 col-form-label descricao">Ativo:</label>
+      <div class="col-sm-6">
+        <input type="text" class="form-control" id="ativo" [(ngModel)]="profissional.Ativo" name="ativo">
+      </div>
+    </div>
+
+    <section class="container-btn">
+     <div class="mb-3 row">
+      <button (click)="salvarProfissional()">Salvar</button>
+    </div>
+    </section>
+
+  </div>
+</form>
