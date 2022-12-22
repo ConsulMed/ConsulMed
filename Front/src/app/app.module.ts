@@ -13,6 +13,7 @@ import { ListarHospitaisComponent } from './components/listar-hospitais/listar-h
 import { ListarProfissionalComponent } from './components/listar-profissional/listar-profissional.component';
 import { EspecialidadesComponent } from './components/especialidades/especialidades.component';
 import { ListarBeneficiariosComponent } from './components/listar-beneficiarios/listar-beneficiarios.component';
+import { EditarHospitalComponent } from './components/editar-hospital/editar-hospital.component';
 import { ConsultaComponent } from './components/consulta/consulta.component';
 
 @NgModule({
@@ -26,6 +27,7 @@ import { ConsultaComponent } from './components/consulta/consulta.component';
     ListarProfissionalComponent,
     EspecialidadesComponent,
     ListarBeneficiariosComponent,
+    EditarHospitalComponent,
     ConsultaComponent
   ],
   imports: [

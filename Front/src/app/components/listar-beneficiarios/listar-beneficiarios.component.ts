@@ -35,7 +35,7 @@ export class ListarBeneficiariosComponent {
   }
 
   cadastrarBeneficiario() {
-      this.router.navigate([`cadastrarbeneficiario`]);
+      this.router.navigate([`listarbeneficiarios`]);
   }
 
 }
