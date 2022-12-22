@@ -1,5 +1,6 @@
 ﻿using ConsulMed.Data.Dto;
 using ConsulMed.Data.Interface;
+using ConsulMed.Data.Repositorio;
 using Microsoft.AspNetCore.Mvc;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -11,12 +12,11 @@ namespace ConsulMed.Controllers
     public class AgendamentoController : ControllerBase
     {
         private readonly ConsulMed.Data.Interface.IAgendamentoRepositorio _agendamentoRepositorio;
-        private IAgendamentoRepositorio _agendamentooRepositorio;
 
         public AgendamentoController(
             ConsulMed.Data.Interface.IAgendamentoRepositorio agendamentoRepositorio)
         {
-            _agendamentooRepositorio = agendamentoRepositorio;
+            _agendamentoRepositorio = agendamentoRepositorio;
         }
 
         [HttpGet]
@@ -81,7 +81,7 @@ namespace ConsulMed.Controllers
             {
                 int resultado = _agendamentoRepositorio.Cadastrar(cadastrarDto);
 
-                if (cadastrarDto == null || String.IsNullOrEmpty(ToString))
+                if (cadastrarDto == null || String.IsNullOrEmpty(cadastrarDto.IdAgendamento.ToString()))
                     return NoContent();
 
                 return Ok(resultado);
@@ -98,10 +98,14 @@ namespace ConsulMed.Controllers
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public IActionResult Atualizar(AgendamentoDto cadastrarDto)
         {
-            if (cadastrarDto.IdAgendamento == null || cadastrarDto.IdAgendamento < 1)
-                return NoContent();
-
-            return BadRequest("Não localizado");
+            try
+            {
+                return Ok(_agendamentoRepositorio.Atualizar(cadastrarDto));
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e.Message);
+            }
 
         }
 
@@ -109,15 +113,11 @@ namespace ConsulMed.Controllers
         [Route("/Excluir")]
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(int))]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public IActionResult Excluir(int IAgendamento)
+        public IActionResult Excluir(int IdAgendamento)
         {
             try
             {
-                if (IAgendamento < 1)
-                    return NoContent();
-
-                return Ok();
-
+                return Ok(_agendamentoRepositorio.Excluir(IdAgendamento));
             }
             catch (Exception e)
             {

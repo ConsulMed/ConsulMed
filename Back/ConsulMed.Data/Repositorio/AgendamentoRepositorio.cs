@@ -39,7 +39,7 @@ namespace ConsulMed.Data.Repositorio
             agendamentoEntidadeBanco.Ativo = cadastrarDto.Ativo;
 
             _contexto.ChangeTracker.Clear();
-            _contexto.Agendamentos.Update(agendamentoEntidade);
+            _contexto.Agendamentos.Update(agendamentoEntidadeBanco);
             return _contexto.SaveChanges();
         }
 

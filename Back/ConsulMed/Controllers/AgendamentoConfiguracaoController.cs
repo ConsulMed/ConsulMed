@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using ConsulMed.Data.Dto;
+using Microsoft.AspNetCore.Mvc;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -8,36 +9,118 @@ namespace ConsulMed.Controllers
     [ApiController]
     public class AgendamentoConfiguracaoController : ControllerBase
     {
-        // GET: api/<AgendamentoConfiguracaoController>
+        private readonly ConsulMed.Data.Interface.IAgendamentoConfiguracaoRepositorio _agendamentoConfiguracaoRepositorio;
+        
+        public AgendamentoConfiguracaoController(
+            ConsulMed.Data.Interface.IAgendamentoConfiguracaoRepositorio agendamentoConfiguracaoRepositorio)
+        {
+            _agendamentoConfiguracaoRepositorio = agendamentoConfiguracaoRepositorio;
+        }
+
         [HttpGet]
-        public IEnumerable<string> Get()
+        [Route("/[controller]/ListarTodas")]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(List<ConsulMed.Data.Dto.AgendamentoConfiguracaoDto>))]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public IActionResult ListarTodas()
         {
-            return new string[] { "value1", "value2" };
+            try
+            {
+                List<AgendamentoConfiguracaoDto> resultado = _agendamentoConfiguracaoRepositorio.ListarTodas();
+
+                if (resultado == null)
+                {
+                    return NoContent();
+                }
+
+                if (resultado.Count == 0)
+                {
+                    throw new Exception("Sem elementos");
+                }
+
+                return Ok(resultado);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
-        // GET api/<AgendamentoConfiguracaoController>/5
-        [HttpGet("{id}")]
-        public string Get(int id)
+        [HttpGet]
+        [Route("/[controller]/PorId/{id}")]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(ConsulMed.Data.Dto.AgendamentoConfiguracaoDto))]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public IActionResult PorId(int id)
         {
-            return "value";
+            if (id < 1)
+                return NoContent();
+
+            try
+            {
+                AgendamentoConfiguracaoDto resultado = _agendamentoConfiguracaoRepositorio.PorId(id);
+
+                if (resultado == null)
+                    return NoContent();
+
+                return Ok(resultado);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
-        // POST api/<AgendamentoConfiguracaoController>
         [HttpPost]
-        public void Post([FromBody] string value)
+        [Route("/[controller]/Cadastrar")]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(int))]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public IActionResult Cadastrar(AgendamentoConfiguracaoDto cadastrarDto)
         {
+            try
+            {
+                int resultado = _agendamentoConfiguracaoRepositorio.Cadastrar(cadastrarDto);
+
+                if (cadastrarDto == null || String.IsNullOrEmpty(cadastrarDto.Nome))
+                    return NoContent();
+
+                return Ok(resultado);
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e.Message);
+            }
         }
 
-        // PUT api/<AgendamentoConfiguracaoController>/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        [HttpPut]
+        [Route("/[controller]/Atualizar")]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(int))]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public IActionResult Atualizar(AgendamentoConfiguracaoDto cadastrarDto)
         {
+            try
+            {
+                return Ok(_agendamentoConfiguracaoRepositorio.Atualizar(cadastrarDto));
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e.Message);
+            }
+
         }
 
-        // DELETE api/<AgendamentoConfiguracaoController>/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
+        [HttpDelete]
+        [Route("/[controller]/Excluir")]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(int))]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public IActionResult Excluir(int IdBeneficiario)
         {
+            try
+            {
+                return Ok(_agendamentoConfiguracaoRepositorio.Excluir(IdBeneficiario));
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e.Message);
+            }
         }
     }
 }
