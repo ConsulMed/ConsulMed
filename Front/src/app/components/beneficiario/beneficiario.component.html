@@ -4,48 +4,48 @@
         <label class="title">Cadastrar Beneficiario</label>
       </div>
       <div class="mb-3 row">
-        <label for="nomeBeneficiario" class="col-sm-4 col-form-label">Nome do Beneficiario</label>
+        <label for="nomeBeneficiario" class="col-sm-4 col-form-label descricao">Nome do Beneficiario:</label>
         <div class="col-sm-6">
           <input type="text" class="form-control" id="nomeBeneficiario" [(ngModel)]="beneficiario.nome" name="nome">
         </div>
       </div>
       <div class="mb-3 row">
-        <label for="cpf" class="col-sm-4 col-form-label">CPF</label>
+        <label for="cpf" class="col-sm-4 col-form-label descricao">CPF:</label>
         <div class="col-sm-6">
           <input type="text" class="form-control" id="cpf" [(ngModel)]="beneficiario.cpf" name="cpf">
         </div>
       </div>
 
       <div class="mb-3 row">
-        <label for="telefone" class="col-sm-4 col-form-label">Telefone</label>
+        <label for="telefone" class="col-sm-4 col-form-label descricao">Telefone:</label>
         <div class="col-sm-6">
           <input type="text" class="form-control" id="telefone" [(ngModel)]="beneficiario.telefone" name="telefone">
         </div>
       </div>
 
       <div class="mb-3 row">
-        <label for="endereco" class="col-sm-4 col-form-label">Endereço</label>
+        <label for="endereco" class="col-sm-4 col-form-label descricao">Endereço:</label>
         <div class="col-sm-6">
           <input type="text" class="form-control" id="endereco" [(ngModel)]="beneficiario.endereco" name="endereco">
         </div>
       </div>
 
       <div class="mb-3 row">
-        <label for="numeroCarteirinha" class="col-sm-4 col-form-label">Número da Carteirinha</label>
+        <label for="numeroCarteirinha" class="col-sm-4 col-form-label descricao">Número da Carteira de Saúde:</label>
         <div class="col-sm-6">
           <input type="text" class="form-control" id="numeroCarteirinha" [(ngModel)]="beneficiario.numeroCarteirinha" name="numeroCarteirinha">
         </div>
       </div>
 
       <div class="mb-3 row">
-          <label for="email" class="col-sm-4 col-form-label">E-mail</label>
+          <label for="email" class="col-sm-4 col-form-label descricao">E-mail:</label>
           <div class="col-sm-6">
               <input type="text" class="form-control" id="email" [(ngModel)]="beneficiario.email" name="email">
             </div>
         </div>
 
         <div class="mb-3 row">
-          <label for="senha" class="col-sm-4 col-form-label">Senha</label>
+          <label for="senha" class="col-sm-4 col-form-label descricao">Senha:</label>
           <div class="col-sm-6">
             <input type="text" class="form-control" id="senha" [(ngModel)]="beneficiario.senha" name="senha">
           </div>
@@ -58,8 +58,11 @@
         </div>
       </div>
 
-      <div class="mb-3 row">
+      <section class="container-btn">
+        <div class="mb-3 row">
         <button (click)="salvar()">Salvar</button>
       </div>
+      </section>
+
     </div>
   </form>
