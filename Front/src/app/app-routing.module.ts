@@ -4,11 +4,13 @@ import { RouterModule, Routes } from '@angular/router';
 import { BeneficiarioComponent } from './components/beneficiario/beneficiario.component';
 import { CadastroHospitalComponent } from './components/cadastro-hospital/cadastro-hospital.component';
 import { HomeComponent } from './components/home/home.component';
+import { ListarHospitaisComponent } from './components/listar-hospitais/listar-hospitais.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'listarbeneficiarios', component: BeneficiarioComponent },
   { path: 'cadastrarhospital', component: CadastroHospitalComponent},
+  { path: 'listarhospitais', component: ListarHospitaisComponent},
   { path: 'cadastrarprofissional', component: ProfissionalComponent},
   { path: '**', redirectTo: ''}
 ];

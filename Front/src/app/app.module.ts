@@ -9,6 +9,8 @@ import { CadastroHospitalComponent } from './components/cadastro-hospital/cadast
 import { HomeComponent } from './components/home/home.component';
 import { BeneficiarioComponent } from './components/beneficiario/beneficiario.component';
 import { ProfissionalComponent } from './components/profissional/profissional.component';
+import { ListarHospitaisComponent } from './components/listar-hospitais/listar-hospitais.component';
+import { ListarProfissionalComponent } from './components/listar-profissional/listar-profissional.component';
 import { EspecialidadesComponent } from './components/especialidades/especialidades.component';
 
 @NgModule({
@@ -18,6 +20,8 @@ import { EspecialidadesComponent } from './components/especialidades/especialida
     HomeComponent,
     BeneficiarioComponent,
     ProfissionalComponent,
+    ListarHospitaisComponent,
+    ListarProfissionalComponent,
     EspecialidadesComponent
   ],
   imports: [
