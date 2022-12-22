@@ -13,7 +13,7 @@ namespace ConsulMed.Data.Dto
 
         public string? Cnpj { get; set; }
 
-        public string? Endereço { get; set; }
+        public string? Endereco { get; set; }
 
         public string? Telefone { get; set; }
 

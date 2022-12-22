@@ -1,4 +1,5 @@
 ﻿using ConsulMed.Data.Dto;
+using ConsulMed.Data.Interface;
 using Microsoft.AspNetCore.Mvc;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -10,6 +11,7 @@ namespace ConsulMed.Controllers
     public class AgendamentoController : ControllerBase
     {
         private readonly ConsulMed.Data.Interface.IAgendamentoRepositorio _agendamentoRepositorio;
+        private IAgendamentoRepositorio _agendamentooRepositorio;
 
         public AgendamentoController(
             ConsulMed.Data.Interface.IAgendamentoRepositorio agendamentoRepositorio)
@@ -79,7 +81,7 @@ namespace ConsulMed.Controllers
             {
                 int resultado = _agendamentoRepositorio.Cadastrar(cadastrarDto);
 
-                if (cadastrarDto == null || String.IsNullOrEmpty(cadastrarDto.Nome))
+                if (cadastrarDto == null || String.IsNullOrEmpty(ToString))
                     return NoContent();
 
                 return Ok(resultado);

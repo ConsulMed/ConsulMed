@@ -11,7 +11,6 @@ namespace ConsulMed.Data.Interface
         List<Dto.AgendamentoDto> ListarTodas();
         Dto.AgendamentoDto PorId(int idAgendamento);
         int Atualizar(Dto.AgendamentoDto cadastrarDto);
-        int AtualizarId();
         int Cadastrar(Dto.AgendamentoDto cadastrarDto);
         int Excluir(int idAgendamento);
     }

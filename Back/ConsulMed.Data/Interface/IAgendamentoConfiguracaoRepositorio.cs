@@ -8,5 +8,10 @@ namespace ConsulMed.Data.Interface
 {
     public interface IAgendamentoConfiguracaoRepositorio
     {
+        List<Dto.AgendamentoConfiguracaoDto> ListarTodas();
+        Dto.AgendamentoConfiguracaoDto PorId(int idAgendamentoConfiguracao);
+        int Atualizar(Dto.AgendamentoConfiguracaoDto cadastrarDto);
+        int Cadastrar(Dto.AgendamentoConfiguracaoDto cadastrarDto);
+        int Excluir(int idAgendamentoConfiguracao);
     }
 }

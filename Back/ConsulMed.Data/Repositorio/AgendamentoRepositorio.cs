@@ -26,95 +26,88 @@ namespace ConsulMed.Data.Repositorio
                  ?.FirstOrDefault()
                  ?? new Entidade.Agendamento();
 
-            // TRATAMENTO DE ERRO
-            // CASO NÃO ACHE O ID PARA ATUALIZAR, RETORNA VALOR 0. 
-            // OU SEJA, NÃO ATUALIZOU NENHUM CADASTRO
             if (agendamentoEntidadeBanco == null || DBNull.Value.Equals(agendamentoEntidadeBanco.IdAgendamento) || agendamentoEntidadeBanco.IdAgendamento == 0)
             {
                 return 0;
             }
-
-            Entidade.Agendamento agendamentoEntidade = new Entidade.Agendamento()
-            {
-                IdAgendamento = cadastrarDto.IdAgendamento,
-                IdHospital = cadastrarDto.IdHospital,
-                IdEspecialidade = cadastrarDto.IdEspecialidade,
-                IdProfissional = cadastrarDto.IdProfissional
-                DataHoraAgendamento = cadastrarDto.DataHoraAgendamento,
-                IdBeneficiario = cadastrarDto.IdBeneficiario,
-                Ativo = cadastrarDto.Ativo,
-
-            };
+            agendamentoEntidadeBanco.IdAgendamento = cadastrarDto.IdAgendamento;
+            agendamentoEntidadeBanco.IdHospital = cadastrarDto.IdHospital;
+            agendamentoEntidadeBanco.IdEspecialidade = cadastrarDto.IdEspecialidade;
+            agendamentoEntidadeBanco.IdProfissional = cadastrarDto.IdProfissional;
+            agendamentoEntidadeBanco.DataHoraAgendamento = cadastrarDto.DataHoraAgendamento;
+            agendamentoEntidadeBanco.IdBeneficiario = cadastrarDto.IdBeneficiario;
+            agendamentoEntidadeBanco.Ativo = cadastrarDto.Ativo;
 
             _contexto.ChangeTracker.Clear();
             _contexto.Agendamentos.Update(agendamentoEntidade);
             return _contexto.SaveChanges();
         }
 
-        public int AtualizarId()
+        public int Cadastrar(AgendamentoDto cadastrarDto)
         {
-            throw new NotImplementedException();
-        }
-
-        public int Cadastrar(BeneficiarioDto cadastrarDto)
-        {
-            Entidade.Beneficiario beneficiarioEntidade = new Entidade.Beneficiario()
+            Entidade.Agendamento agendamentoEntidade = new Entidade.Agendamento()
             {
-                Nome = cadastrarDto.Nome,
-                Cpf = cadastrarDto.Cpf,
-                Telefone = cadastrarDto.Telefone,
-                Endereco = cadastrarDto.Endereco,
-                NumeroCarteirinha = cadastrarDto.NumeroCarteirinha,
+                IdAgendamento = cadastrarDto.IdAgendamento,
+                IdHospital = cadastrarDto.IdHospital,
+                IdEspecialidade = cadastrarDto.IdEspecialidade,
+                IdProfissional = cadastrarDto.IdProfissional,
+                DataHoraAgendamento = cadastrarDto.DataHoraAgendamento,
                 Ativo = cadastrarDto.Ativo,
-                Email = cadastrarDto.Email,
-                Senha = cadastrarDto.Senha
+                IdBeneficiario = cadastrarDto.IdBeneficiario,
             };
 
             _contexto.ChangeTracker.Clear();
-            _contexto.Beneficiarios.Add(beneficiarioEntidade);
+            _contexto.Agendamentos.Add(agendamentoEntidade);
             return _contexto.SaveChanges();
         }
 
-        public int Excluir(int idBeneficiario)
+        public int Excluir(int idAgendamento)
         {
-            Entidade.Beneficiario beneficiarioEntidadeBanco =
-                (from c in _contexto.Beneficiarios
-                 where c.IdBeneficiario == idBeneficiario
+            Entidade.Agendamento agendamentoEntidadeBanco =
+                (from c in _contexto.Agendamentos
+                 where c.IdAgendamento == idAgendamento
                  select c).FirstOrDefault();
 
-            // TRATAMENTO DE ERRO
-            // CASO NÃO ACHE O ID PARA ATUALIZAR, RETORNA VALOR 0. 
-            // OU SEJA, NÃO ATUALIZOU NENHUM CADASTRO
-            if (beneficiarioEntidadeBanco == null || DBNull.Value.Equals(beneficiarioEntidadeBanco.IdBeneficiario) || beneficiarioEntidadeBanco.IdBeneficiario == 0)
+            if (agendamentoEntidadeBanco == null || DBNull.Value.Equals(agendamentoEntidadeBanco.IdAgendamento) || agendamentoEntidadeBanco.IdAgendamento == 0)
             {
                 return 0;
             }
 
             _contexto.ChangeTracker.Clear();
-            _contexto.Beneficiarios.Remove(beneficiarioEntidadeBanco);
+            _contexto.Agendamentos.Remove(agendamentoEntidadeBanco);
             return _contexto.SaveChanges();
         }
 
-        public List<Dto.BeneficiarioDto> ListarTodas()
+        public List<Dto.AgendamentoDto> ListarTodas()
         {
-            return _contexto.Beneficiarios.Select(s => new Dto.BeneficiarioDto()
+            return _contexto.Agendamentos.Select(s => new Dto.AgendamentoDto()
             {
+                IdAgendamento = s.IdAgendamento,
+                IdHospital = s.IdHospital,
+                IdEspecialidade = s.IdEspecialidade,
+                IdProfissional = s.IdProfissional,
+                DataHoraAgendamento = s.DataHoraAgendamento,
                 IdBeneficiario = s.IdBeneficiario,
-                Nome = s.Nome
+                Ativo = s.Ativo,
             }).ToList();
         }
 
-        public BeneficiarioDto PorId(int id)
+        public AgendamentoDto PorId(int id)
         {
-            return (from t in _contexto.Beneficiarios
-                    where t.IdBeneficiario == id
-                    select new Dto.BeneficiarioDto()
+            return (from t in _contexto.Agendamentos
+                    where t.IdAgendamento == id
+                    select new Dto.AgendamentoDto()
                     {
+                        IdAgendamento = t.IdAgendamento,
+                        IdHospital = t.IdHospital,
+                        IdEspecialidade = t.IdEspecialidade,
+                        IdProfissional = t.IdProfissional,
+                        DataHoraAgendamento = t.DataHoraAgendamento,
                         IdBeneficiario = t.IdBeneficiario,
-                        Nome = t.Nome
+                        Ativo = t.Ativo,
                     })
                     ?.FirstOrDefault()
-                    ?? new BeneficiarioDto();
+                    ?? new AgendamentoDto();
         }
     }
 }

@@ -16,9 +16,6 @@ namespace ConsulMed.Data.Dto
         public DateTime DataHoraAgendamento { get; set; }
         public int IdBeneficiario { get; set; }
         public bool Ativo { get; set; }
-        public virtual Beneficiario IdBeneficiarioNavigation { get; set; } = null!;
-        public virtual Especialidade IdEspecialidadeNavigation { get; set; } = null!;
-        public virtual Hospital IdHospitalNavigation { get; set; } = null!;
-        public virtual Profissional IdProfissionalNavigation { get; set; } = null!;
     }
 }
+
