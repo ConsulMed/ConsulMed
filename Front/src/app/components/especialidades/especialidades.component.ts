@@ -29,7 +29,7 @@ export class EspecialidadesComponent implements OnInit {
 
   if(this.idEspecialidadeRecebido) {
     this.http
-      .get(`https://localhost:7074/PorId/${this.idEspecialidadeRecebido}`)
+      .get(`https://localhost:7074/Especialidade/PorId/${this.idEspecialidadeRecebido}`)
       .subscribe(data => {
         this.especialidade = data as IEspecialidadesDto;
       });
@@ -43,13 +43,13 @@ export class EspecialidadesComponent implements OnInit {
 
       if (this.especialidade.IdEspecialidade == 0) {
 
-        this.http.post('https://localhost:7074/Cadastrar', this.especialidade)
+        this.http.post('https://localhost:7074/Especialidade/Cadastrar', this.especialidade)
           .subscribe((data) => {
             this.router.navigate(['listarespecialidade']);
           });
 
       } else {
-        this.http.patch('https://localhost:7074/Atualizar', this.especialidade)
+        this.http.patch('https://localhost:7074/Especialidade/Atualizar', this.especialidade)
           .subscribe((data) => {
             this.router.navigate(['listarespecialidade']);
           });

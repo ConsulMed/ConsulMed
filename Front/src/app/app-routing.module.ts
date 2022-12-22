@@ -6,6 +6,7 @@ import { CadastroHospitalComponent } from './components/cadastro-hospital/cadast
 import { HomeComponent } from './components/home/home.component';
 import { ListarHospitaisComponent } from './components/listar-hospitais/listar-hospitais.component';
 import { ListarProfissionalComponent } from './components/listar-profissional/listar-profissional.component';
+import { EspecialidadesComponent } from './components/especialidades/especialidades.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -14,6 +15,8 @@ const routes: Routes = [
   { path: 'listarhospitais', component: ListarHospitaisComponent},
   { path: 'cadastrarprofissional', component: ProfissionalComponent},
   { path: 'listarprofissional', component: ListarProfissionalComponent},
+  { path: 'cadastrarespecialidades', component: EspecialidadesComponent},
+
   { path: '**', redirectTo: ''}
 ];
 
