@@ -1,5 +1,5 @@
 <main class="main">
-  <h1 class="title">Profissinais</h1>
+  <h1 class="title">Profissionais</h1>
 
   <form *ngIf="telaParaApresentar=='listaprofissional'">
 
@@ -10,9 +10,9 @@
       <ul class="list-unstyled" *ngIf="profissional && profissional.length">
         <li *ngFor="let hospital of profissionalLista" class="item-lista"> <span class="span-hospital-lista">Profissional:</span> {{hospital.nome}}
           <span class="icons">
-            <i class="material-icons">edit</i>
+            <i class="material-icons" (click)="editarProfissional(hospital.idProfissional);">edit</i>
             <i class="material-icons">visibility</i>
-            <i class="material-icons">delete</i>
+            <i class="material-icons" (click)="removerProfissional(hospital.idProfissional)" >delete</i>
           </span>
         </li>
       </ul>

@@ -1,3 +1,4 @@
+import { EditarProfissionalComponent } from './components/editar-profissional/editar-profissional.component';
 import { ProfissionalComponent } from './components/profissional/profissional.component';
 import { NgModule, Component } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
@@ -11,6 +12,7 @@ import { ListarBeneficiariosComponent } from './components/listar-beneficiarios/
 import { AgendamentoComponent } from './components/agendamento/agendamento.component';
 import { ConsultaComponent } from './components/consulta/consulta.component'
 
+
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'listarbeneficiarios', component: BeneficiarioComponent },
@@ -22,6 +24,7 @@ const routes: Routes = [
   { path: 'listarbeneficiario', component: ListarBeneficiariosComponent},
   { path: 'agendamento', component: AgendamentoComponent},
   { path: 'consulta', component: ConsultaComponent},
+  { path: 'editarProfissional', component: EditarProfissionalComponent},
 
 
   { path: '**', redirectTo: ''}

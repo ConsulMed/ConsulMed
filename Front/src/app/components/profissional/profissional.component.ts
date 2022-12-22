@@ -51,7 +51,7 @@ export class ProfissionalComponent implements OnInit {
       } else {
         this.http.patch('https://localhost:7074/Profissional/AtualizarProfissional', this.profissional)
           .subscribe((data) => {
-            this.router.navigate(['cadastrarprofissional']);
+            this.router.navigate(['listarprofissional']);
           });
       }
 
