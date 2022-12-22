@@ -58,9 +58,10 @@ form {
 
 .container-btn {
   display: flex;
-  justify-content: center;
   gap: 1.8rem;
   margin-top: 1rem;
+  justify-content: flex-end;
+
 }
 
 .container-btn div button {
