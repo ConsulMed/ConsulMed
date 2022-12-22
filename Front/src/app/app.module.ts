@@ -11,6 +11,7 @@ import { BeneficiarioComponent } from './components/beneficiario/beneficiario.co
 import { ProfissionalComponent } from './components/profissional/profissional.component';
 import { ListarHospitaisComponent } from './components/listar-hospitais/listar-hospitais.component';
 import { ListarProfissionalComponent } from './components/listar-profissional/listar-profissional.component';
+import { EspecialidadesComponent } from './components/especialidades/especialidades.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { ListarProfissionalComponent } from './components/listar-profissional/li
     BeneficiarioComponent,
     ProfissionalComponent,
     ListarHospitaisComponent,
-    ListarProfissionalComponent
+    ListarProfissionalComponent,
+    EspecialidadesComponent
   ],
   imports: [
     BrowserModule,
