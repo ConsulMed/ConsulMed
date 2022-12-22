@@ -33,8 +33,19 @@ export class ListarProfissionalComponent {
     );
   }
 
+  removerProfissional(id: number) {
+    this.http.delete(`https://localhost:7074/Profissional/ExcluirProfissional?IdProfissional=${id}`)
+      .subscribe((data) => {
+        console.log(`Linhas executadas no método de remover do banco ${JSON.stringify(data)}`);
+        this.listarProfissional();
+      });
+  }
+
   cadastrarProfissional() {
       this.router.navigate([`cadastrarprofissional`]);
+  }
+  editarProfissional(id: number) {
+    this.router.navigate([`/editarProfissional`]);
   }
 
 }
