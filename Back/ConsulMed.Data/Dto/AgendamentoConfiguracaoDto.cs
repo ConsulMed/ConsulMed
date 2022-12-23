@@ -17,8 +17,6 @@ namespace ConsulMed.Data.Dto
         public int IdProfissional { get; set; }
 
         public DateTime DataHoraInicioAtendimento { get; set; }
-
         public DateTime DataHoraFinalAtendimento { get; set; }
-        public object DataHoraAgendamento { get; internal set; }
     }
 }

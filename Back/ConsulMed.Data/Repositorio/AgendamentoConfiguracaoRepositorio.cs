@@ -28,7 +28,7 @@ namespace ConsulMed.Data.Repositorio
                  ?? new Entidade.AgendamentoConfiguracao();
 
 
-            if (agendamentoConfiguracaoEntidadeBanco == null || DBNull.Value.Equals(agendamentoConfiguracaoEntidadeBanco.IdAgendamentoConfiguracao) || agendamentoConfiguracaoEntidadeBanco.IdAgendamentoConfiguracao == 0)
+            if (agendamentoConfiguracaoEntidadeBanco == null || DBNull.Value.Equals(agendamentoConfiguracaoEntidadeBanco.IdConfiguracao) || agendamentoConfiguracaoEntidadeBanco.IdConfiguracao == 0)
             {
                 return 0;
             }
@@ -59,17 +59,18 @@ namespace ConsulMed.Data.Repositorio
             _contexto.ChangeTracker.Clear();
             _contexto.AgendamentoConfiguracaos.Add(agendamentoConfiguracaoEntidade);
             return _contexto.SaveChanges();
+
         }
 
         public int Excluir(int idAgendamentoConfiguracao)
         {
             Entidade.AgendamentoConfiguracao agendamentoConfiguracaoEntidadeBando =
                 (from c in _contexto.AgendamentoConfiguracaos
-                 where c.IdAgendamentoConfiguracao == idAgendamentoConfiguracao
+                 where c.IdConfiguracao == idAgendamentoConfiguracao
                  select c).FirstOrDefault();
 
 
-            if (agendamentoConfiguracaoEntidadeBando == null || DBNull.Value.Equals(agendamentoConfiguracaoEntidadeBando.IdAgendamentoConfiguracao) || agendamentoConfiguracaoEntidadeBando.IdAgendamentoConfiguracao == 0)
+            if (agendamentoConfiguracaoEntidadeBando == null || DBNull.Value.Equals(agendamentoConfiguracaoEntidadeBando.IdConfiguracao) || agendamentoConfiguracaoEntidadeBando.IdConfiguracao == 0)
             {
                 return 0;
             }
@@ -95,7 +96,7 @@ namespace ConsulMed.Data.Repositorio
         public AgendamentoConfiguracaoDto PorId(int id)
         {
             return (from t in _contexto.AgendamentoConfiguracaos
-                    where t.IdAgendamentoConfiguracao == id
+                    where t.IdConfiguracao == id
                     select new Dto.AgendamentoConfiguracaoDto()
                     {
                         IdConfiguracao = t.IdConfiguracao,
