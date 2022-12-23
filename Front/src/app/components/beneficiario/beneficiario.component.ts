@@ -2,7 +2,7 @@
 import { ActivatedRoute, Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { IBeneficiarioDto } from 'src/app/interface/IBeneficiarioDto';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-beneficiario',
@@ -10,6 +10,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./beneficiario.component.css']
 })
 export class BeneficiarioComponent implements OnInit {
+  @Input()
+  maxlength!: string | number | null;
+
   beneficiario!: IBeneficiarioDto;
   idBeneficiarioRecebido!: number;
 

@@ -12,42 +12,42 @@
       <div class="mb-3 row">
         <label for="cpf" class="col-sm-4 col-form-label descricao">CPF:</label>
         <div class="col-sm-6">
-          <input type="text" class="form-control" id="cpf" [(ngModel)]="beneficiario.cpf" name="cpf" placeholder="Ex: 000.000.000-00">
+          <input type="text" class="form-control" id="cpf" [(ngModel)]="beneficiario.cpf" name="cpf" placeholder="Ex: 000.000.000-00" maxlength="14">
         </div>
       </div>
 
       <div class="mb-3 row">
         <label for="telefone" class="col-sm-4 col-form-label descricao">Telefone:</label>
         <div class="col-sm-6">
-          <input type="text" class="form-control" id="telefone" [(ngModel)]="beneficiario.telefone" name="telefone" placeholder="Ex: 00 90000-0000">
+          <input type="text" class="form-control" id="telefone" [(ngModel)]="beneficiario.telefone" name="telefone" placeholder="Ex: 00 90000-0000" maxlength="15">
         </div>
       </div>
 
       <div class="mb-3 row">
         <label for="endereco" class="col-sm-4 col-form-label descricao">Endereço:</label>
         <div class="col-sm-6">
-          <input type="text" class="form-control" id="endereco" [(ngModel)]="beneficiario.endereco" name="endereco" placeholder="Ex: Rua, Bairro, Número">
+          <input type="text" class="form-control" id="endereco" [(ngModel)]="beneficiario.endereco" name="endereco" placeholder="Ex: Rua, Bairro, Número" maxlength="250">
         </div>
       </div>
 
       <div class="mb-3 row">
         <label for="numeroCarteirinha" class="col-sm-4 col-form-label descricao">Número da Carteira de Saúde:</label>
         <div class="col-sm-6">
-          <input type="text" class="form-control" id="numeroCarteirinha" [(ngModel)]="beneficiario.numeroCarteirinha" name="numeroCarteirinha" placeholder="Ex: 0000.0000.0000-0000">
+          <input type="text" class="form-control" id="numeroCarteirinha" [(ngModel)]="beneficiario.numeroCarteirinha" name="numeroCarteirinha" placeholder="Ex: 0000.0000.0000-0000" maxlength="30">
         </div>
       </div>
 
       <div class="mb-3 row">
           <label for="email" class="col-sm-4 col-form-label descricao">E-mail:</label>
           <div class="col-sm-6">
-              <input type="text" class="form-control" id="email" [(ngModel)]="beneficiario.email" name="email" placeholder="Ex: nomesobrenome@email.com">
+              <input type="text" class="form-control" id="email" [(ngModel)]="beneficiario.email" name="email" placeholder="Ex: nomesobrenome@email.com" maxlength="100">
             </div>
         </div>
 
         <div class="mb-3 row">
           <label for="senha" class="col-sm-4 col-form-label descricao">Senha:</label>
           <div class="col-sm-6">
-            <input type="text" class="form-control" id="senha" [(ngModel)]="beneficiario.senha" name="senha" placeholder="******">
+            <input type="text" class="form-control" id="senha" [(ngModel)]="beneficiario.senha" name="senha" placeholder="******" maxlength="30">
           </div>
         </div>
 

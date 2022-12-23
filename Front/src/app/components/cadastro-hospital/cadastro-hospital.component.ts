@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { IHospitalDto } from 'src/app/interface/IHospitalDto';
 
@@ -9,6 +9,9 @@ import { IHospitalDto } from 'src/app/interface/IHospitalDto';
   styleUrls: ['./cadastro-hospital.component.css']
 })
 export class CadastroHospitalComponent implements OnInit {
+
+  @Input()
+  maxlength!: string | number | null;
 
   hospital!: IHospitalDto;
   idHospitalRecebido!: number;

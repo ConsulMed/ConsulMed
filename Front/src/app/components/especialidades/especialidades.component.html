@@ -3,36 +3,36 @@
       <div class="tituloEspecialidade">
         <label class="title">Cadastrar Especialidade</label>
       </div>
-  
+
       <div class="mb-3 row">
-        <label for="nomeEspecialidade" class="col-sm-4 col-form-label descricao">Nome do Especialidade:</label>
+        <label for="nomeEspecialidade" class="col-sm-4 col-form-label descricao">Nome da Especialidade:</label>
         <div class="col-sm-6">
-          <input type="text" class="form-control" id="nomeEspecialidade" [(ngModel)]="especialidade.nome" name="nome">
+          <input type="text" class="form-control" id="nomeEspecialidade" [(ngModel)]="especialidade.nome" name="nome" placeholder="Ex: Oftalmologia">
         </div>
       </div>
-  
+
       <div class="mb-3 row">
-        <label for="telefone" class="col-sm-4 col-form-label descricao">Telefone:</label>
+        <label for="telefone" class="col-sm-4 col-form-label descricao">Descrição:</label>
         <div class="col-sm-6">
-          <input type="text" class="form-control" id="telefone" [(ngModel)]="especialidade.descricao" name="telefone">
+          <input type="text" class="form-control" id="descricao" [(ngModel)]="especialidade.descricao" name="descricao">
         </div>
       </div>
-  
-      
-  
+
+
+
       <div class="mb-3 row">
         <label for="ativo" class="col-sm-4 col-form-label descricao">Ativo:</label>
         <div class="col-sm-6">
           <input type="text" class="form-control" id="ativo" [(ngModel)]="especialidade.ativo" name="ativo">
         </div>
       </div>
-  
+
       <section class="container-btn">
        <div class="mb-3 row">
         <button (click)="salvarEspecialidade()">Salvar</button>
       </div>
       </section>
-  
+
     </div>
   </form>
-  
+

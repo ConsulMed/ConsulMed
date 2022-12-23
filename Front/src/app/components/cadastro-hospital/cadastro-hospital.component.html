@@ -11,7 +11,7 @@
     </div>
     <div>
       <label for="nomeProfissional" class="col-sm-4 col-form-label descricao">CNPJ:</label>
-      <input type="text" class="form-control" id="Cnpj" [(ngModel)]="hospital.Cnpj" name="Cnpj" placeholder="Ex: 00.000.000/0000-00">
+      <input type="text" class="form-control" id="Cnpj" [(ngModel)]="hospital.Cnpj" name="Cnpj" placeholder="Ex: 00.000.000/0000-00" maxlength="25">
     </div>
     <div>
       <label for="nomeProfissional" class="col-sm-4 col-form-label descricao">Endereço:</label>
@@ -19,11 +19,11 @@
     </div>
     <div>
       <label for="nomeProfissional" class="col-sm-4 col-form-label descricao">Telefone:</label>
-      <input type="text" class="form-control" id="Telefone" [(ngModel)]="hospital.Telefone" name="Telefone" placeholder="Ex: 00 90000-0000">
+      <input type="text" class="form-control" id="Telefone" [(ngModel)]="hospital.Telefone" name="Telefone" placeholder="Ex: 00 90000-0000" maxlength="15">
     </div>
     <div>
       <label for="nomeProfissional" class="col-sm-4 col-form-label descricao">CNES:</label>
-      <input type="text" class="form-control" id="Cnes" [(ngModel)]="hospital.Cnes" name="Nome" placeholder="0000.0000.0000-00">
+      <input type="text" class="form-control" id="Cnes" [(ngModel)]="hospital.Cnes" name="Nome" placeholder="0000.0000.0000-00" maxlength="50">
     </div>
     <div>
       <label for="nomeProfissional" class="col-sm-4 col-form-label descricao">Ativo:</label>
