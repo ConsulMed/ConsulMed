@@ -37,8 +37,8 @@ export class ListarHospitaisComponent {
       this.router.navigate([`cadastrarhospital`]);
   }
 
-  removerHospital(IdHospital: number) {
-    this.http.delete(`https://localhost:7074/ExcluirHospital?IdHospital=${IdHospital}`)
+  removerHospital(id: number) {
+    this.http.delete(`https://localhost:7074/ExcluirHospital/${id}`)
       .subscribe((data) => {
         console.log(`Linhas executadas no método de remover do banco ${JSON.stringify(data)}`);
         this.listarHospitais();

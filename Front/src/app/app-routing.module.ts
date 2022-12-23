@@ -1,3 +1,4 @@
+import { EditarHospitalComponent } from './components/editar-hospital/editar-hospital.component';
 import { EditarProfissionalComponent } from './components/editar-profissional/editar-profissional.component';
 import { ProfissionalComponent } from './components/profissional/profissional.component';
 import { NgModule, Component } from '@angular/core';
@@ -25,7 +26,6 @@ const routes: Routes = [
   { path: 'agendamento', component: AgendamentoComponent},
   { path: 'consulta', component: ConsultaComponent},
   { path: 'editarProfissional', component: EditarProfissionalComponent},
-
 
   { path: '**', redirectTo: ''}
 ];
