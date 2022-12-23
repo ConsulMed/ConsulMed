@@ -4,7 +4,8 @@
   <form *ngIf="telaParaApresentar=='listaBeneficiario'">
 
     <div class="form-group container-btn">
-      <button (click)="cadastrarBeneficiario()">Cadastrar novo beneficiario</button>
+      <button (click)="cadastrarBeneficiario()">Realizar Cadastro</button>
+      <button class="nomeB" routerLink="/agendamento">Marcar Consulta</button>
     </div>
 
     <div class="data">
@@ -13,7 +14,7 @@
           <span class="icons">
             <i class="material-icons">edit</i>
             <i class="material-icons">visibility</i>
-            <i class="material-icons">delete</i>
+            <i class="material-icons" (click)="removerBeneficiario(beneficiario.idBeneficiario)" >delete</i>
           </span>
         </li>
       </ul>

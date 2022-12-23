@@ -27,11 +27,18 @@ export class ListarBeneficiariosComponent {
     // LIMPAR A LISTA ANTES DE PREENCHER
     this.beneficiario = [];
 
-    this.http.get('https://localhost:7074/ListarTodas')
+    this.http.get('https://localhost:7074/Beneficiario/ListarTodas')
     .subscribe(
         response => {this.beneficiario = response as IBeneficiarioDto[]; this.beneficiarioLista = this.beneficiario; },
         error => console.log(error)
     );
+  }
+  removerBeneficiario(id: number) {
+    this.http.delete(`https://localhost:7074/Beneficiario/Excluir?idBeneficiario=${id}`)
+      .subscribe((data) => {
+        console.log(`Linhas executadas no método de remover do banco ${JSON.stringify(data)}`);
+        this.listarBeneficiario();
+      });
   }
 
   cadastrarBeneficiario() {

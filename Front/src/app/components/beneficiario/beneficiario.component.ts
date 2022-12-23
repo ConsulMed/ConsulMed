@@ -48,13 +48,13 @@ export class BeneficiarioComponent implements OnInit {
 
       if (this.beneficiario.idBeneficiario == 0) {
 
-        this.http.post('https://localhost:7074/Cadastrar', this.beneficiario)
+        this.http.post('https://localhost:7074/Beneficiario/Cadastrar', this.beneficiario)
           .subscribe((data) => {
             this.router.navigate(['listarbeneficiarios']);
           });
 
       } else {
-        this.http.patch('https://localhost:7074/Atualizar', this.beneficiario)
+        this.http.patch('https://localhost:7074/Beneficiario/Atualizar', this.beneficiario)
           .subscribe((data) => {
             this.router.navigate(['listarbeneficiarios']);
           });

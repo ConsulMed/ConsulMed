@@ -26,6 +26,8 @@
   color:#26525E;
   font-weight: 600;
   cursor: pointer;
+  margin-right: 10px;
+
 }
 
 .data {
@@ -56,4 +58,14 @@
 
 .icons i {
   margin-left: 1.5rem;
+}
+
+.nomeB{
+  color: #26525E;
+}
+
+.container-btn  button:hover {
+  background-color: #26525E;
+  color: #ffff;
+
 }
