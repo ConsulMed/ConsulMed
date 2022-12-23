@@ -1,6 +1,6 @@
 # ConsulMed
 
-<img width="2656" alt="medicos" src="https://user-images.githubusercontent.com/104527029/209242703-daad1321-d9e9-4ffd-b27f-ae5a5ef490e6.png" alt ="Desenho de medicos e enfermeiros" title = "Desenho de medicos e enfermeiros" width = 80 />
+<img width="850" alt="medicos" src="https://user-images.githubusercontent.com/104527029/209242703-daad1321-d9e9-4ffd-b27f-ae5a5ef490e6.png" alt ="Desenho de medicos e enfermeiros" title = "Desenho de medicos e enfermeiros" width = 80 />
 
 
 
@@ -19,6 +19,15 @@ Projeto foi realizado com base no treinamento ministrado por Guilherme Pereira e
 - ``.Net``
 - ``Visual Studio``
 - ``Bootstrap``
+
+# Telas
+![image](https://user-images.githubusercontent.com/104527029/209396325-e7d37114-601e-45d3-a644-7edd393aaf36.png)
+![image](https://user-images.githubusercontent.com/104527029/209396091-ed55c8d0-e962-4146-b296-1d3561d971e3.png)
+![image](https://user-images.githubusercontent.com/104527029/209396117-7aba9694-270b-485c-a5c2-0564ce3ee73c.png)
+![image](https://user-images.githubusercontent.com/104527029/209396137-5c625541-528f-410d-9d73-95ae0aae69cd.png)
+![image](https://user-images.githubusercontent.com/104527029/209396237-218c7fa5-f32b-4008-948f-1e1ddc11786d.png)
+![image](https://user-images.githubusercontent.com/104527029/209396271-c26fe715-dcb6-481e-a15a-cfa4170577fd.png)
+
 
 # Membros do projeto
 
